@@ -2,7 +2,7 @@ IMAGE_NAME ?= reflex-tutorial
 IMAGE_TAG ?= $(CI_BUILD_REF_NAME)
 
 # Defaults to current git tag, or branch if no tag
-CI_BUILD_REF_NAME ?= $(shell git describe --tags --exact-match 2>/dev/null || git name-rev --name-only HEAD)
+CI_BUILD_REF_NAME ?= $(shell (cd reflex-tutorial; git describe --tags --exact-match 2>/dev/null) || (cd reflex-tutorial; git name-rev --name-only HEAD))
 
 
 build: reflex-tutorial
